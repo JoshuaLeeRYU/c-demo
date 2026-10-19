@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "gcc: 编译当前文件",
+      "type": "shell",
+      "command": "C:\\Users\\a1376\\mingw64\\bin\\gcc.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-Wall",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "MinGW-w64 gcc：编译当前打开的 .c 文件，生成同名 .exe"
+    },
+    {
+      "label": "gcc: 编译并运行当前文件",
+      "type": "shell",
+      "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [],
+      "dependsOn": "gcc: 编译当前文件",
+      "detail": "先编译，再运行生成的可执行文件"
+    }
+  ]
+}
